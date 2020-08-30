@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {connect} from 'react-redux'
-import {addList, addCard} from '../actions'
+import {addList, addCard} from '../store/lists'
 
 class TrelloAddBtn extends React.Component {
   state = {
@@ -66,7 +66,7 @@ class TrelloAddBtn extends React.Component {
   renderForm = () => {
     const {list} = this.props
 
-    const placeholder = list ? 'enter column title' : 'enter job title'
+    // const placeholder = list ? 'enter column title' : 'enter job title'
 
     const btnTitle = list ? 'Add Column' : 'Add Job'
 
