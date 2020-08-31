@@ -10,7 +10,7 @@ class Routes extends React.Component {
   render() {
     return (
       <Router>
-        <ul className="nav justify-content-end">
+        <ul className="nav justify-content-end shadow p-3 mb-5 bg-light rounded">
           <li className="nav-item btn btn-light mx-3">
             <NavLink className="text-dark" to="/home">
               Home
