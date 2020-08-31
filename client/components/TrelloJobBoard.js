@@ -7,6 +7,7 @@ import TrelloAddBtn from './TrelloAddBtn'
 
 //import dummyData from "../dummyData";
 import {DragDropContext} from 'react-beautiful-dnd'
+import LeftNavbar from './LeftNavbar'
 
 class TrelloJobBoard extends React.Component {
   render() {
@@ -15,16 +16,23 @@ class TrelloJobBoard extends React.Component {
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <div className="row">
-          {lists.map(list => (
-            <TrelloColumn
-              listID={list.id}
-              key={list.id}
-              title={list.title}
-              cards={list.cards}
-            />
-          ))}
-          <TrelloAddBtn list />
+        <div className="row mt-5">
+          <div className="col-2">
+            <LeftNavbar />
+          </div>
+          <div className="col-10">
+            <div className="row">
+              {lists.map(list => (
+                <TrelloColumn
+                  listID={list.id}
+                  key={list.id}
+                  title={list.title}
+                  cards={list.cards}
+                />
+              ))}
+              <TrelloAddBtn list />
+            </div>
+          </div>
         </div>
       </DragDropContext>
     )

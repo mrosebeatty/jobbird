@@ -9,29 +9,30 @@ import Search from './components/Search'
 function App() {
   return (
     <React.Fragment>
-      <div className="container">
-        <div className="row align-items-center">
-          {/* <Navbar /> */}
-          <div className="col">
+      <div className="m-3">
+        {/* <div className="row align-items-center"> */}
+        {/* <Navbar /> */}
+        {/* <div className="col">
             <h1 className="col-8" style={{fontFamily: 'Lobster'}}>
               One Job, Please
             </h1>
-          </div>
-          {/* <div class=" float-right">
+          </div> */}
+        {/* <div class=" float-right">
             <GoogleBtn />
           </div> */}
-        </div>
+        {/* </div> */}
+        <Navbar />
         <Routes />
-        <TrelloJobBoard />
-        <Search />
-        <Home />
+
+        {/* <Home /> */}
       </div>
-      <footer className="footer">
-        <div className="container">
-          <span className="text-muted">
-            I tried to make a footer. Copyright Katie 2020.
+      <footer className="row footer justify-content-center bg-dark text-light mt-1 sticky-bottom">
+        <p>
+          Made by Katie with
+          <span className="lead text-danger px-1">
+            <i className="fas fa-heart" />
           </span>
-        </div>
+        </p>
       </footer>
     </React.Fragment>
   )
