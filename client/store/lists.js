@@ -40,7 +40,7 @@ export const sort = (
 //list reducer
 
 let listID = 3
-let cardID = 6
+let cardID = 8
 
 const initialState = [
   {
@@ -81,6 +81,14 @@ const initialState = [
       },
       {
         id: `card-${5}`,
+        text: 'front-end developer'
+      },
+      {
+        id: `card-${6}`,
+        text: 'front-end developer'
+      },
+      {
+        id: `card-${7}`,
         text: 'front-end developer'
       }
     ]

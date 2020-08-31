@@ -33,7 +33,6 @@ class TrelloAddBtn extends React.Component {
       })
       dispatch(addList(text))
     }
-    
   }
 
   handleAddCard = () => {
