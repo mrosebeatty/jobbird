@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import TrelloColumn from './TrelloColumn'
 import TrelloAddBtn from './TrelloAddBtn'
 import {DragDropContext} from 'react-beautiful-dnd'
+import LeftNavbar from './LeftNavbar'
+
 import {sort} from '../store/actions'
 
 class TrelloJobBoard extends React.Component {
@@ -26,10 +28,14 @@ class TrelloJobBoard extends React.Component {
 
   render() {
     const {lists} = this.props
+    console.log(this.props)
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className="row">
+          <div className="col">
+            <LeftNavbar />
+          </div>
           {lists.map(list => (
             <TrelloColumn
               listID={list.id}

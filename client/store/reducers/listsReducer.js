@@ -1,52 +1,7 @@
 import {CONSTANTS} from '../actions'
 
-let listID = 3
-let cardID = 6
-
-const initialState = [
-  {
-    id: `list-${0}`,
-    title: 'Bananas',
-    cards: [
-      {
-        id: `card-${0}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${1}`,
-        text: 'front-end developer'
-      }
-    ]
-  },
-  {
-    id: `list-${1}`,
-    title: 'Applied',
-    cards: [
-      {
-        id: `card-${2}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${3}`,
-        text: 'front-end developer'
-      }
-    ]
-  },
-  {
-    id: `list-${2}`,
-    title: 'Interview',
-    cards: [
-      {
-        id: `card-${4}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${5}`,
-        text: 'donuts'
-      }
-    ]
-  }
-]
+let listID = 4
+let cardID = 8
 
 const listsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -93,6 +48,7 @@ const listsReducer = (state = initialState, action) => {
 
       //if the same list
       if (droppableIdStart === droppableIdEnd) {
+        console.log('heeeeeeeelo')
         const list = state.find(list => droppableIdStart === list.id)
 
         const card = list.cards.splice(droppableIndexStart, 1)
