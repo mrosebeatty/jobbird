@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import OAuthLoginForm from './oauth-login-form.'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
@@ -18,12 +19,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       ) : (
         <div>
           {/* The navbar will show these links before you log in */}
-          <Link className="nav-item mx-1 text-dark" to="/login">
-            Login
-          </Link>
-          <Link className="nav-item mx-1 text-dark" to="/signup">
-            Sign Up
-          </Link>
+          <OAuthLoginForm />
         </div>
       )}
     </ul>
