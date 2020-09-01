@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {connect} from 'react-redux'
-import {addList, addCard} from '../store/lists'
+import {addList, addCard} from '../store/actions'
 
 class TrelloAddBtn extends React.Component {
   state = {

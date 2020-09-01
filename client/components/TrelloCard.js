@@ -11,7 +11,7 @@ const TrelloCard = ({text, id, index}) => {
           {...provided.dragHandleProps}
         >
           <div className="card my-1">
-            <p className="p-5">{text}</p>
+            <p>{text}</p>
           </div>
         </div>
       )}

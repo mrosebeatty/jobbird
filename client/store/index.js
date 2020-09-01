@@ -4,7 +4,7 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 
-import listsReducer from './lists'
+import listsReducer from './reducers/listsReducer'
 
 const reducer = combineReducers({
   user,
@@ -17,5 +17,3 @@ const store = createStore(reducer, middleware)
 
 export default store
 export * from './user'
-export * from './cards'
-export * from './lists'

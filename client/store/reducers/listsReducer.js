@@ -1,99 +1,7 @@
-export const CONSTANTS = {
-  ADD_CARD: 'ADD_CARD',
-  ADD_LIST: 'ADD_LIST',
-  DRAG_HAPPENED: 'DRAG_HAPPENED'
-}
+import {CONSTANTS} from '../actions'
 
-export const addList = title => {
-  return {
-    type: CONSTANTS.ADD_LIST,
-    payload: title
-  }
-}
-
-export const addCard = (listID, text) => {
-  return {
-    type: CONSTANTS.ADD_CARD,
-    payload: {text, listID}
-  }
-}
-
-export const sort = (
-  droppableIdStart,
-  droppableIdEnd,
-  droppableIndexStart,
-  droppableIndexEnd,
-  draggableId
-) => {
-  return {
-    type: CONSTANTS.DRAG_HAPPENED,
-    payload: {
-      droppableIdStart,
-      droppableIdEnd,
-      droppableIndexStart,
-      droppableIndexEnd,
-      draggableId
-    }
-  }
-}
-
-//list reducer
-
-let listID = 3
+let listID = 4
 let cardID = 8
-
-const initialState = [
-  {
-    id: `list-${0}`,
-    title: 'Wishlist',
-    cards: [
-      {
-        id: `card-${0}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${1}`,
-        text: 'front-end developer'
-      }
-    ]
-  },
-  {
-    id: `list-${1}`,
-    title: 'Applied',
-    cards: [
-      {
-        id: `card-${2}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${3}`,
-        text: 'front-end developer'
-      }
-    ]
-  },
-  {
-    id: `list-${2}`,
-    title: 'Interview',
-    cards: [
-      {
-        id: `card-${4}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${5}`,
-        text: 'front-end developer'
-      },
-      {
-        id: `card-${6}`,
-        text: 'front-end developer'
-      },
-      {
-        id: `card-${7}`,
-        text: 'front-end developer'
-      }
-    ]
-  }
-]
 
 const listsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -140,6 +48,7 @@ const listsReducer = (state = initialState, action) => {
 
       //if the same list
       if (droppableIdStart === droppableIdEnd) {
+        console.log('heeeeeeeelo')
         const list = state.find(list => droppableIdStart === list.id)
 
         const card = list.cards.splice(droppableIndexStart, 1)
