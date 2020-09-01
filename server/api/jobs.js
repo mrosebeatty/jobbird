@@ -48,7 +48,6 @@ router.get('/', async (req, res, next) => {
 })
 
 //POST route to add all new jobs to the db     ROUTE /api/jobs
-
 //make a call to the api ONCE A DAY ? & save NEW jobs into the database
 router.post('/', async (req, res, next) => {
   try {
