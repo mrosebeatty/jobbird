@@ -1,51 +1,12 @@
-export const CONSTANTS = {
-  ADD_CARD: 'ADD_CARD',
-  ADD_LIST: 'ADD_LIST',
-  DRAG_HAPPENED: 'DRAG_HAPPENED'
-}
-
-export const addList = title => {
-  return {
-    type: CONSTANTS.ADD_LIST,
-    payload: title
-  }
-}
-
-export const addCard = (listID, text) => {
-  return {
-    type: CONSTANTS.ADD_CARD,
-    payload: {text, listID}
-  }
-}
-
-export const sort = (
-  droppableIdStart,
-  droppableIdEnd,
-  droppableIndexStart,
-  droppableIndexEnd,
-  draggableId
-) => {
-  return {
-    type: CONSTANTS.DRAG_HAPPENED,
-    payload: {
-      droppableIdStart,
-      droppableIdEnd,
-      droppableIndexStart,
-      droppableIndexEnd,
-      draggableId
-    }
-  }
-}
-
-//list reducer
+import {CONSTANTS} from '../actions'
 
 let listID = 3
-let cardID = 8
+let cardID = 6
 
 const initialState = [
   {
     id: `list-${0}`,
-    title: 'Wishlist',
+    title: 'Bananas',
     cards: [
       {
         id: `card-${0}`,
@@ -81,15 +42,7 @@ const initialState = [
       },
       {
         id: `card-${5}`,
-        text: 'front-end developer'
-      },
-      {
-        id: `card-${6}`,
-        text: 'front-end developer'
-      },
-      {
-        id: `card-${7}`,
-        text: 'front-end developer'
+        text: 'donuts'
       }
     ]
   }

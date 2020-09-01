@@ -1,45 +1,49 @@
 import React from 'react'
-//added 08/26 trello-board branch
 import {connect} from 'react-redux'
-//___________________________________
 import TrelloColumn from './TrelloColumn'
 import TrelloAddBtn from './TrelloAddBtn'
-
-//import dummyData from "../dummyData";
 import {DragDropContext} from 'react-beautiful-dnd'
-import LeftNavbar from './LeftNavbar'
+import {sort} from '../store/actions'
 
 class TrelloJobBoard extends React.Component {
+  onDragEnd = result => {
+    const {destination, source, draggableId} = result
+
+    if (!destination) {
+      return
+    }
+
+    this.props.dispatch(
+      sort(
+        source.droppableId,
+        destination.droppableId,
+        source.index,
+        destination.index,
+        draggableId
+      )
+    )
+  }
+
   render() {
     const {lists} = this.props
-    console.log(lists)
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <div className="row mt-5">
-          <div className="col-2">
-            <LeftNavbar />
-          </div>
-          <div className="col-10">
-            <div className="row">
-              {lists.map(list => (
-                <TrelloColumn
-                  listID={list.id}
-                  key={list.id}
-                  title={list.title}
-                  cards={list.cards}
-                />
-              ))}
-              <TrelloAddBtn list />
-            </div>
-          </div>
+        <div className="row">
+          {lists.map(list => (
+            <TrelloColumn
+              listID={list.id}
+              key={list.id}
+              title={list.title}
+              cards={list.cards}
+            />
+          ))}
+          <TrelloAddBtn list />
         </div>
       </DragDropContext>
     )
   }
 }
-
-//added 08/26 trello-board branch
 
 const mapStateToProps = state => ({
   lists: state.lists
