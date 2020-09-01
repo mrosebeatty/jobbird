@@ -3,6 +3,65 @@ import {CONSTANTS} from '../actions'
 let listID = 4
 let cardID = 8
 
+const initialState = [
+  {
+    id: `list-${0}`,
+    title: 'WISHLIST',
+    cards: [
+      {
+        id: `card-${0}`,
+        text: 'software engineer'
+      },
+      {
+        id: `card-${1}`,
+        text: 'front-end developer'
+      }
+    ]
+  },
+  {
+    id: `list-${1}`,
+    title: 'APPLIED',
+    cards: [
+      {
+        id: `card-${2}`,
+        text: 'software engineer'
+      },
+      {
+        id: `card-${3}`,
+        text: 'front-end developer'
+      }
+    ]
+  },
+  {
+    id: `list-${2}`,
+    title: 'INTERVIEW',
+    cards: [
+      {
+        id: `card-${4}`,
+        text: 'software engineer'
+      },
+      {
+        id: `card-${5}`,
+        text: 'donuts'
+      }
+    ]
+  },
+  {
+    id: `list-${3}`,
+    title: 'OFFER',
+    cards: [
+      {
+        id: `card-${6}`,
+        text: 'software engineer'
+      },
+      {
+        id: `card-${7}`,
+        text: 'donuts'
+      }
+    ]
+  }
+]
+
 const listsReducer = (state = initialState, action) => {
   switch (action.type) {
     case CONSTANTS.ADD_LIST:
