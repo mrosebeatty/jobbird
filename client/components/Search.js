@@ -14,6 +14,7 @@ class Search extends React.Component {
     try {
       const {data} = await axios.get(`/api/jobs`)
       this.setState({
+        ///axios.get(`/api/:userId`
         jobs: data
       })
     } catch (err) {

@@ -13,6 +13,20 @@ router.get('/', async (req, res, next) => {
   }
 }) //api/user/userjobs
 
+//api/userjobs/userId
+router.get('/:userId', async (req, res, next) => {
+  try {
+    const test1 = await UserJob.findAll({
+      where: {
+        userId: req.params.userId
+      }
+    })
+    res.json(test1)
+  } catch (error) {
+    next(error)
+  }
+})
+
 //retrieve a single job      ROUTE /api/userjobs/:userId/:jobId
 router.get('/:userId/:jobId', async (req, res, next) => {
   try {
