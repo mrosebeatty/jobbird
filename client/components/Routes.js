@@ -1,10 +1,10 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import TrelloJobBoard from './TrelloJobBoard'
-// import LeftNavbar from './LeftNavbar'
 import Search from './Search'
 import Home from './Home'
+import SingleJob from './SingleJob'
 
 class Routes extends React.Component {
   render() {
@@ -14,6 +14,7 @@ class Routes extends React.Component {
           <Route exact path="/home" component={Home} />
           <Route exact path="/jobboard" component={TrelloJobBoard} />
           <Route exact path="/search" component={Search} />
+          <Route path="/jobs/:jobId" component={SingleJob} />
         </div>
       </Router>
     )
