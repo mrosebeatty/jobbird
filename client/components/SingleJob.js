@@ -1,8 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-export default class SingleJob extends React.Component {
+export class SingleJob extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -10,35 +11,47 @@ export default class SingleJob extends React.Component {
     }
   }
 
-  saveJob(job) {
-    //this is where we'll write the function to save a job
-    //const prevStateCampuses = this.state.campuses;
-    // if (prevStateCampuses.indexOf(campus) === -1) {
-    //   this.setState({
-    //     campuses: [...prevStateCampuses, campus],
-    //   });
-    // }
-  }
-
   async componentDidMount() {
     try {
       const jobId = this.props.match.params.jobId
 
       const res = await axios.get(`/api/jobs/${jobId}`)
-
       this.setState({job: res.data})
     } catch (error) {
-      console.log('This is the error from componentDidMount in SingleJob')
+      console.log(
+        'This is the error from componentDidMount in SingleJob' + error
+      )
     }
   }
 
+  async saveJob(job) {
+    try {
+      const id = this.state.job.id
+      //to test add 1 to userId
+      const userId = 1
+      const res = await axios.post(`/api/userjobs/${userId}/${id}/add`, job)
+      // this.setState({job: res.data})
+    } catch (error) {
+      console.log(
+        'This is the error from componentDidMount in SingleJob' + error
+      )
+    }
+  }
+
+  //omg katie, can you please disable the button after save, like really tho!
+
   render() {
+    console.log('props' + this.props, 'state' + this.state)
     const job = this.state.job
     return (
       <div>
         <div>
           <p>Title: {job.title}</p>
-          <button type="button" className="float-right" onClick={this.saveJob}>
+          <button
+            type="button"
+            className="float-right"
+            onClick={() => this.saveJob(job)}
+          >
             Save
           </button>
         </div>
@@ -68,3 +81,11 @@ export default class SingleJob extends React.Component {
 //     }
 //   }
 // }
+
+const mapState = reduxState => {
+  return {
+    user: reduxState.user
+  }
+}
+
+export default connect(mapState)(SingleJob)
