@@ -2,6 +2,39 @@ const router = require('express').Router()
 module.exports = router
 const {UserJob, Job} = require('../db/models')
 
+//**MADISON WORKS */
+//Get all data from userjobs table associated with a userId  ROUTE /api/userjobs/userId
+router.get('/:userId', async (req, res, next) => {
+  try {
+    const test1 = await UserJob.findAll({
+      where: {
+        userId: req.params.userId
+      }
+    })
+    res.json(test1)
+  } catch (error) {
+    next(error)
+  }
+})
+
+//DELETE LATER??? USELESS
+//show all columns associated with a userId
+//api/userjobs/userId/columns
+router.get('/:id/columns', async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id)
+    const userColumns = await UserJob.findOne({
+      where: {
+        id: user.columnId
+      }
+    })
+    res.json(userColumns)
+  } catch (error) {
+    next(error)
+  }
+})
+//_________________________________
+
 //Get all job items from a user  ROUTE /api/userjobs/userId
 router.get('/:userId', async (req, res, next) => {
   try {
@@ -76,12 +109,14 @@ router.delete('/:userId/:jobId', async (req, res, next) => {
 })
 
 //add job to the userjobs    /api/userjobs/:userId/:jobId/add
+//THIS ROUTE WORKS - ADDS RECORD TO THE THROUGH TABLE
 router.post('/:userId/:jobId/add', async (req, res, next) => {
   try {
     const [newJob] = await UserJob.findOrCreate({
       where: {
-        userId: Number(req.params.userId),
-        jobId: Number(req.params.jobId)
+        userId: req.params.userId,
+        jobId: req.params.jobId,
+        status: '0'
       }
     })
     res.send(newJob)
