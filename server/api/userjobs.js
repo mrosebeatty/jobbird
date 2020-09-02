@@ -3,6 +3,20 @@ module.exports = router
 const {UserJob, Job} = require('../db/models')
 
 //Get all job items from a user  ROUTE /api/userjobs/userId
+//testing 123
+router.get('/:id', async (req, res, next) => {
+  try {
+    const test1 = await UserJob.findAll({
+      where: {
+        userId: req.params.Id
+      }
+    })
+    res.json(test1)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.get('/:userId', async (req, res, next) => {
   try {
     //pulling what we have saved under user
