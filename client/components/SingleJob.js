@@ -28,7 +28,7 @@ export class SingleJob extends React.Component {
     try {
       const id = this.state.job.id
       //to test add 1 to userId
-      const userId = 1
+      const userId = this.props.user.id
       const res = await axios.post(`/api/userjobs/${userId}/${id}/add`, job)
       // this.setState({job: res.data})
     } catch (error) {
@@ -37,8 +37,6 @@ export class SingleJob extends React.Component {
       )
     }
   }
-
-  //omg katie, can you please disable the button after save, like really tho!
 
   render() {
     console.log('props' + this.props, 'state' + this.state)
