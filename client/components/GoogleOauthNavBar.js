@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import OAuthLoginForm from './oauth-login-form.'
 
-const Navbar = ({handleClick, isLoggedIn}) => (
+const GoogleOauthNavBar = ({handleClick, isLoggedIn}) => (
   <div>
     <ul className="nav">
       {isLoggedIn ? (
@@ -43,12 +43,12 @@ const mapDispatch = dispatch => {
   }
 }
 
-export default connect(mapState, mapDispatch)(Navbar)
+export default connect(mapState, mapDispatch)(GoogleOauthNavBar)
 
 /**
  * PROP TYPES
  */
-Navbar.propTypes = {
+GoogleOauthNavBar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
 }
