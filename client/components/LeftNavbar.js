@@ -1,24 +1,28 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 
-const LeftNavbar = () => {
+const LeftNavBar = () => {
   return (
-    <div className="row justify-content-center">
-      <div className="btn-group-vertical">
-        <button type="button" className="btn btn-outline-dark btn-lg">
-          <Link className="text-dark" to="/jobboard">
+    <div>
+      <ul className="navbar justify-content-end shadow p-3 mb-5 bg-light rounded">
+        <li className="nav-item btn btn-light mx-3">
+          <NavLink className="text-dark" to="/home">
+            Home
+          </NavLink>
+        </li>
+        <li className="nav-item btn btn-light">
+          <NavLink className="text-dark" to="/jobboard">
             My Job Board
-          </Link>{' '}
-        </button>
-
-        <button type="button" className="btn btn-outline-dark mt-3 btn-lg">
-          <Link className="text-dark" to="/search">
+          </NavLink>
+        </li>
+        <li className="nav-item btn btn-light mx-3">
+          <NavLink className="text-dark" to="/search">
             Search
-          </Link>
-        </button>
-      </div>
-
-      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          </NavLink>
+        </li>
+      </ul>
+      {/*
+       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
@@ -40,4 +44,4 @@ const LeftNavbar = () => {
   )
 }
 
-export default LeftNavbar
+export default LeftNavBar
