@@ -9,5 +9,6 @@ const Job = require('./job')
 
 User.belongsToMany(Job, {through: UserJob})
 Job.belongsToMany(User, {through: UserJob})
+//Created to associate a list with a user
 
 module.exports = {db, Job, User, UserJob}

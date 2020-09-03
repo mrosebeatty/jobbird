@@ -1,6 +1,6 @@
 const router = require('express').Router()
 module.exports = router
-const {UserJob, Job} = require('../db/models')
+const {UserJob, Job, User} = require('../db/models')
 
 //**MADISON WORKS */
 //Get all data from userjobs table associated with a userId  ROUTE /api/userjobs/userId
