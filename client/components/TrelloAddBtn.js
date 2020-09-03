@@ -24,17 +24,6 @@ class TrelloAddBtn extends React.Component {
     })
   }
 
-  handleAddList = () => {
-    const {dispatch} = this.props
-    const {text} = this.state
-    if (text) {
-      this.setState({
-        text: ''
-      })
-      dispatch(addList(text))
-    }
-  }
-
   handleAddCard = () => {
     const {dispatch, listID} = this.props
     const {text} = this.state

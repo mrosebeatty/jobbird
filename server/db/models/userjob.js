@@ -6,15 +6,12 @@ const UserJob = db.define('userjobs', {
     type: Sequelize.TEXT
   },
   status: {
-    type: Sequelize.ENUM('0', '1', 'interview', 'rejected', 'offer'),
-    allowNull: false
+    type: Sequelize.ENUM('0', '1', '2', '3', '4'),
+    allowNull: true
   },
   contacts: {
     type: Sequelize.STRING,
-    allowNull: false
-  },
-  columnId: {
-    type: Sequelize.STRING
+    allowNull: true
   }
 })
 
