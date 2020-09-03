@@ -1,45 +1,39 @@
 import React from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import {Route, NavLink} from 'react-router-dom'
+
+import TrelloJobBoard from './TrelloJobBoard'
+import Search from './Search'
+import Home from './Home'
 
 const LeftNavBar = () => {
   return (
     <div>
       <ul className="navbar justify-content-end shadow p-3 mb-5 bg-light rounded">
         <li className="nav-item btn btn-light mx-3">
-          <NavLink className="text-dark" to="/home">
-            Home
-          </NavLink>
+          <nav>
+            <NavLink className="text-dark" to="/">
+              Home
+            </NavLink>
+          </nav>
         </li>
         <li className="nav-item btn btn-light">
-          <NavLink className="text-dark" to="/jobboard">
-            My Job Board
-          </NavLink>
+          <nav>
+            <NavLink className="text-dark" to="/jobboard">
+              My Job Board
+            </NavLink>
+          </nav>
         </li>
         <li className="nav-item btn btn-light mx-3">
-          <NavLink className="text-dark" to="/search">
-            Search
-          </NavLink>
+          <nav>
+            <NavLink className="text-dark" to="/search">
+              Search
+            </NavLink>
+          </nav>
         </li>
       </ul>
-      {/*
-       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-               <Link to="/">My Job Board</Link>
-              <a className="nav-link" href="/jobboard">
-                My Job Board
-              </a>
-            </li>
-            <li className="nav-item">
-              <Link to="/search">Search</Link>
-              <a className="nav-link" href="/search">
-                Search
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav> */}
+      <Route exact path="/" component={Home} />
+      <Route exact path="/jobboard" component={TrelloJobBoard} />
+      <Route exact path="/search" component={Search} />
     </div>
   )
 }

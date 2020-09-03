@@ -10,8 +10,9 @@ class Routes extends React.Component {
   render() {
     return (
       <Router>
+        <div />
         <div>
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/jobboard" component={TrelloJobBoard} />
           <Route exact path="/search" component={Search} />
           <Route path="/jobs/:jobId" component={SingleJob} />

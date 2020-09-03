@@ -14,7 +14,6 @@ function App() {
         </div>
         <GoogleOauthNavBar />
         <Routes />
-        {/* <Home /> */}
       </div>
       <footer className="row footer justify-content-center bg-dark text-light mt-1 sticky-bottom">
         <p>
