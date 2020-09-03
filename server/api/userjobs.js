@@ -36,29 +36,25 @@ router.get('/:id/columns', async (req, res, next) => {
 //_________________________________
 
 //Get all job items from a user  ROUTE /api/userjobs/userId
-router.get('/:userId', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     //pulling what we have saved under user
-    const userJobs = await UserJob.findAll({
+    const userJobs = await UserJob.findAll({})
+    res.json(userJobs || []) //results are in an array
+  } catch (error) {
+    next(error)
+  }
+}) //api/user/userjobs
+
+//api/userjobs/userId
+router.get('/:userId', async (req, res, next) => {
+  try {
+    const test1 = await UserJob.findAll({
       where: {
         userId: req.params.userId
-      },
-      include: [
-        {
-          model: Job,
-          required: false,
-          attributes: [
-            'jobId',
-            'company',
-            'url',
-            'location',
-            'title',
-            'description'
-          ]
-        }
-      ]
+      }
     })
-    res.json(userJobs || []) //results are in an array
+    res.json(test1)
   } catch (error) {
     next(error)
   }

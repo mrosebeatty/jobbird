@@ -1,21 +1,23 @@
 import React from 'react'
 import axios from 'axios'
+import SearchBar from './SearchBar'
 import {Link} from 'react-router-dom'
 
 // import dummyData2 from './dummyData2'
 
 class Search extends React.Component {
-  // state = dummyData2;
   constructor(props) {
     super(props)
     this.state = {
       jobs: []
     }
+    this.handleUpdate = this.handleUpdate.bind(this)
   }
   async componentDidMount() {
     try {
       const {data} = await axios.get(`/api/jobs`)
       this.setState({
+        ///axios.get(`/api/:userId`
         jobs: data
       })
     } catch (err) {
@@ -23,19 +25,30 @@ class Search extends React.Component {
     }
   }
 
-  //state = dummyData2;
+  handleUpdate(keyword) {
+    let filteredJobs = []
+    this.state.jobs.filter(o => {
+      if (
+        o.company.toLowerCase().includes(keyword.toLowerCase()) ||
+        o.title.toLowerCase().includes(keyword.toLowerCase()) ||
+        o.location.toLowerCase().includes(keyword.toLowerCase())
+      ) {
+        filteredJobs.push(o)
+      }
+
+      return filteredJobs
+    })
+    console.log('FILTREDJOBS ARRAY', filteredJobs)
+    //console.log("THIS.state.jobs BEFORE", this.state.jobs)
+    this.setState({jobs: filteredJobs})
+    console.log(' jobs AFTER', this.state.jobs)
+  }
+
   render() {
     const {jobs} = this.state
     return (
       <div>
-        <div className="md-form mt-0">
-          <input
-            className="form-control"
-            type="text"
-            placeholder="Search"
-            aria-label="Search"
-          />
-        </div>
+        <SearchBar jobs={jobs} handleUpdate={this.handleUpdate} />
         <div className="d-flex flex-wrap">
           {/* need to make this a link to the job at job.id */}
           {jobs.map(job => (
