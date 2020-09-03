@@ -29,6 +29,7 @@ const GoogleOauthNavBar = ({handleClick, isLoggedIn}) => (
 /**
  * CONTAINER
  */
+
 const mapState = state => {
   return {
     isLoggedIn: !!state.user.id

@@ -3,7 +3,7 @@ import history from '../history'
 
 /**
  * ACTION TYPES
- 
+
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
@@ -24,7 +24,9 @@ const removeUser = () => ({type: REMOVE_USER})
  */
 export const me = () => async dispatch => {
   try {
-    const res = await axios.get('/auth/me')
+    console.log('aaaaaaaa')
+    const res = await axios.get('/api/auth/me')
+    console.log('this is res', res)
     dispatch(getUser(res.data || defaultUser))
   } catch (err) {
     console.error(err)
