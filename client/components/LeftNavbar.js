@@ -31,7 +31,7 @@ const LeftNavBar = () => {
           </nav>
         </li>
       </ul>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/home" component={Home} />
       <Route exact path="/jobboard" component={TrelloJobBoard} />
       <Route exact path="/search" component={Search} />
     </div>

@@ -8,11 +8,12 @@ import LeftNavBar from './components/LeftNavBar'
 function App() {
   return (
     <React.Fragment>
+      <GoogleOauthNavBar />
       <div className="m-3">
         <div className="col">
           <LeftNavBar />
         </div>
-        <GoogleOauthNavBar />
+
         <Routes />
       </div>
       <footer className="row footer justify-content-center bg-dark text-light mt-1 sticky-bottom">
