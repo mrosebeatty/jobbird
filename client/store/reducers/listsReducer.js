@@ -1,11 +1,17 @@
 import {CONSTANTS} from '../actions'
 
-let listID = 4
-let cardID = 8
+const WISHLIST = 0
+const APPLIED = 1
+const INTERVIEW = 2
+const OFFER = 3
+const REJECTED = 4
+
+// let listID = 4
+// let cardID = 8
 
 const initialState = [
   {
-    id: `list-${0}`,
+    id: WISHLIST,
     title: 'WISHLIST',
     cards: [
       {
@@ -19,7 +25,7 @@ const initialState = [
     ]
   },
   {
-    id: `list-${1}`,
+    id: APPLIED,
     title: 'APPLIED',
     cards: [
       {
@@ -33,7 +39,7 @@ const initialState = [
     ]
   },
   {
-    id: `list-${2}`,
+    id: INTERVIEW,
     title: 'INTERVIEW',
     cards: [
       {
@@ -47,8 +53,22 @@ const initialState = [
     ]
   },
   {
-    id: `list-${3}`,
+    id: OFFER,
     title: 'OFFER',
+    cards: [
+      {
+        id: `card-${6}`,
+        text: 'software engineer'
+      },
+      {
+        id: `card-${7}`,
+        text: 'donuts'
+      }
+    ]
+  },
+  {
+    id: REJECTED,
+    title: 'REJECTED',
     cards: [
       {
         id: `card-${6}`,
@@ -64,14 +84,14 @@ const initialState = [
 
 const listsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CONSTANTS.ADD_LIST:
-      const newList = {
-        title: action.payload,
-        cards: [],
-        id: `list-${listID}`
-      }
-      listID += 1
-      return [...state, newList]
+    // case CONSTANTS.ADD_LIST:
+    //   const newList = {
+    //     title: action.payload,
+    //     cards: [],
+    //     id: `list-${listID}`,
+    //   }
+    //   listID += 1
+    //   return [...state, newList]
 
     case CONSTANTS.ADD_CARD: {
       const newCard = {
