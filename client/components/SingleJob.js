@@ -60,25 +60,6 @@ export class SingleJob extends React.Component {
   }
 }
 
-// export class SingleCampus extends React.Component {
-//   render() {
-//     if (this.state.campus) {
-//       return (
-//         <div>
-//           <h1>{campus.name}</h1>
-//           <img src={campus.imageUrl} />
-//           <p>Location: {campus.address}</p>
-//           <p>About: {campus.description}</p>
-
-//           <hr />
-//         </div>
-//       )
-//     } else {
-//       return <div>Loading...</div>
-//     }
-//   }
-// }
-
 const mapState = reduxState => {
   return {
     user: reduxState.user
