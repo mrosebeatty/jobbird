@@ -27,10 +27,9 @@ export class SingleJob extends React.Component {
   async saveJob(job) {
     try {
       const id = this.state.job.id
-      //to test add 1 to userId
-      const userId = this.props.user.id
+      const {data: {id: userId}} = await axios.get(`/api/auth/me`)
       const res = await axios.post(`/api/userjobs/${userId}/${id}/add`, job)
-      // this.setState({job: res.data})
+      this.setState({job: res.data})
     } catch (error) {
       console.log(
         'This is the error from componentDidMount in SingleJob' + error
@@ -39,7 +38,7 @@ export class SingleJob extends React.Component {
   }
 
   render() {
-    console.log('props' + this.props, 'state' + this.state)
+    console.log(this.props)
     const job = this.state.job
     return (
       <div>
