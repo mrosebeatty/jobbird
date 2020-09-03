@@ -1,14 +1,13 @@
 const router = require('express').Router()
 module.exports = router
-const {UserJob, Job} = require('../db/models')
+const {UserJob, Job, User} = require('../db/models')
 
-//Get all job items from a user  ROUTE /api/userjobs/userId
-//testing 123
-router.get('/:id', async (req, res, next) => {
+//Get all data from userjobs table associated with a userId  ROUTE /api/userjobs/userId
+router.get('/:userId', async (req, res, next) => {
   try {
     const test1 = await UserJob.findAll({
       where: {
-        userId: req.params.Id
+        userId: req.params.userId
       }
     })
     res.json(test1)
@@ -17,29 +16,32 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.get('/:userId', async (req, res, next) => {
+//show all columns associated with a userId
+//api/userjobs/userId/columns
+router.get('/:id/columns', async (req, res, next) => {
   try {
-    //pulling what we have saved under user
-    const userJobs = await UserJob.findAll({
+    const user = await User.findByPk(req.params.id)
+    const userColumns = await UserJob.findOne({
       where: {
-        userId: req.params.userId
-      },
-      include: [
-        {
-          model: Job,
-          required: false,
-          attributes: [
-            'jobId',
-            'company',
-            'url',
-            'location',
-            'title',
-            'description'
-          ]
-        }
-      ]
+        id: user.columnId
+      }
     })
-    res.json(userJobs || []) //results are in an array
+    res.json(userColumns)
+  } catch (error) {
+    next(error)
+  }
+})
+
+//api/userjobs/userId/columnId
+router.post('/:userId/:columnId', async (req, res, next) => {
+  try {
+    const [column] = await UserJob.findOrCreate({
+      where: {
+        columnId: Number(req.params.columnId),
+        userId: Number(req.params.userId)
+      }
+    })
+    res.send(column)
   } catch (error) {
     next(error)
   }

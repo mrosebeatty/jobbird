@@ -1,11 +1,14 @@
 import {CONSTANTS} from '../actions'
 
+const WISHLIST = 0
+const APPLIED = 1
+
 let listID = 4
 let cardID = 8
 
 const initialState = [
   {
-    id: `list-${0}`,
+    id: `list-${WISHLIST}`,
     title: 'WISHLIST',
     cards: [
       {
