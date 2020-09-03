@@ -14,7 +14,6 @@ export class SingleJob extends React.Component {
   async componentDidMount() {
     try {
       const jobId = this.props.match.params.jobId
-
       const res = await axios.get(`/api/jobs/${jobId}`)
       this.setState({job: res.data})
     } catch (error) {
@@ -25,11 +24,13 @@ export class SingleJob extends React.Component {
   }
 
   async saveJob(job) {
+    console.log('this is the state', this.state)
     try {
       const id = this.state.job.id
       //to test add 1 to userId
-      const userId = this.props.user.id
+      const userId = this.state.user.id
       const res = await axios.post(`/api/userjobs/${userId}/${id}/add`, job)
+
       // this.setState({job: res.data})
     } catch (error) {
       console.log(
