@@ -4,26 +4,23 @@ import {Route, NavLink} from 'react-router-dom'
 import TrelloJobBoard from './TrelloJobBoard'
 import Search from './Search'
 import Home from './Home'
+import SingleJob from './SingleJob'
 
 const LeftNavBar = () => {
   return (
     <div>
-      <ul className="navbar justify-content-end shadow p-3 mb-5 bg-light rounded">
-        <li className="nav-item btn btn-light mx-3">
+      <ul className="sidenav list-group list-group-flush bg-light ">
+        <li className="nav-item list-group-item bg-light ">
           <nav>
-            <NavLink className="text-dark" to="/">
-              Home
-            </NavLink>
+            <img src="job-quest-logo.png" />
           </nav>
-        </li>
-        <li className="nav-item btn btn-light">
           <nav>
             <NavLink className="text-dark" to="/jobboard">
               My Job Board
             </NavLink>
           </nav>
         </li>
-        <li className="nav-item btn btn-light mx-3">
+        <li className="nav-item list-group-item bg-light">
           <nav>
             <NavLink className="text-dark" to="/search">
               Search
@@ -34,6 +31,7 @@ const LeftNavBar = () => {
       <Route exact path="/home" component={Home} />
       <Route exact path="/jobboard" component={TrelloJobBoard} />
       <Route exact path="/search" component={Search} />
+      <Route path="/jobs/:jobId" component={SingleJob} />
     </div>
   )
 }

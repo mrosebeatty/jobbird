@@ -47,7 +47,7 @@ class Search extends React.Component {
   render() {
     const {jobs} = this.state
     return (
-      <div>
+      <div className="main">
         <SearchBar jobs={jobs} handleUpdate={this.handleUpdate} />
         <div className="d-flex flex-wrap">
           {/* need to make this a link to the job at job.id */}
