@@ -6,3 +6,10 @@ export const addCard = (listID, text) => {
     payload: {text, listID}
   }
 }
+
+export const loadJobs = testJobs => {
+  return {
+    type: CONSTANTS.LOAD_CARD_JOBS,
+    testJobs
+  }
+}

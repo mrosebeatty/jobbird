@@ -13,15 +13,17 @@ const TrelloColumn = ({title, cards, listID, userjobs}) => {
           className="card col-3"
         >
           <h4>{title}</h4>
-          {cards.map((card, index) => (
-            <TrelloCard
-              key={card.id}
-              index={index}
-              text={card.text}
-              id={card.id}
-            />
-          ))}
-          <TrelloAddBtn listID={listID} />
+          {cards.map((card, index) => {
+            return (
+              <TrelloCard
+                key={card.id}
+                index={index}
+                text={card.company}
+                id={card.id}
+              />
+            )
+          })}
+          {/* <TrelloAddBtn listID={listID} /> */}
 
           {provided.placeholder}
         </div>
