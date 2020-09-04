@@ -1,16 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
 /**
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email} = props
+  const {firstName, imgUrl} = props
 
   return (
     <div>
-      <h3>Welcome, {email}</h3>
+      <h3>Welcome, {firstName}</h3>
+      <h2>
+        {' '}
+        Let us help you organize the process to finding the job of your dreams
+      </h2>
+      <img src={imgUrl} alt="photo of person" />
     </div>
   )
 }
@@ -20,15 +24,9 @@ export const UserHome = props => {
  */
 const mapState = state => {
   return {
-    email: state.user.email
+    firstName: state.user.firstName,
+    imgUrl: state.user.imgUrl
   }
 }
 
 export default connect(mapState)(UserHome)
-
-/**
- * PROP TYPES
- */
-UserHome.propTypes = {
-  email: PropTypes.string
-}
