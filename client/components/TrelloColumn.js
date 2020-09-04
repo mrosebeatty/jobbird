@@ -3,7 +3,7 @@ import {Droppable} from 'react-beautiful-dnd'
 import TrelloCard from './TrelloCard'
 import TrelloAddBtn from './TrelloAddBtn'
 
-const TrelloColumn = ({title, cards, listID}) => {
+const TrelloColumn = ({title, cards, listID, userjobs}) => {
   return (
     <Droppable droppableId={String(listID)}>
       {provided => (
