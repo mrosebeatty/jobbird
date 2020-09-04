@@ -1,21 +1,21 @@
 import React from 'react'
 //import GoogleBtn from './GoogleBtn'
-import Routes from './components/Routes'
 import Home from './components/Home'
 import GoogleOauthNavBar from './components/GoogleOauthNavBar'
 import LeftNavBar from './components/LeftNavBar'
+import TrelloJobBoard from './components/TrelloJobBoard'
+import Search from './components/Search'
 
 function App() {
   return (
+    //ask Madison about adding a switch statement; the navbar should only show when you're logged in
+    //also switch statement to go between job board and search page
     <React.Fragment>
       <GoogleOauthNavBar />
-      <div className="m-3">
-        <div className="col">
-          <LeftNavBar />
-        </div>
-
-        <Routes />
+      <div className="row m-3">
+        <LeftNavBar />
       </div>
+
       <footer className="row footer justify-content-center bg-dark text-light mt-1 sticky-bottom">
         <p>
           Made by Mr. Bean with

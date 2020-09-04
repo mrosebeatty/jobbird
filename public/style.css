@@ -1,5 +1,6 @@
 body {
-  font-family: sans-serif;
+  font-family: 'avenir';
+  font-size: 16px;
 }
 
 a {
@@ -18,4 +19,30 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 180px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0px; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+.main {
+  margin-left: 180px; /* Same as the width of the sidebar */
+  margin-top: 30px;
+  padding: 50px 10px;
+}
+/* top right bottom left */
+.topnav {
+  background-color: #fff;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100% !important;
 }

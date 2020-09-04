@@ -36,19 +36,21 @@ class TrelloJobBoard extends React.Component {
     console.log(this.props)
 
     return (
-      <DragDropContext onDragEnd={this.onDragEnd}>
-        <div className="row">
-          {lists.map(list => (
-            <TrelloColumn
-              listID={list.id}
-              key={list.id}
-              title={list.title}
-              cards={list.cards}
-            />
-          ))}
-          <TrelloAddBtn list />
-        </div>
-      </DragDropContext>
+      <div className="main">
+        <DragDropContext onDragEnd={this.onDragEnd}>
+          <div className="row">
+            {lists.map(list => (
+              <TrelloColumn
+                listID={list.id}
+                key={list.id}
+                title={list.title}
+                cards={list.cards}
+              />
+            ))}
+            <TrelloAddBtn list />
+          </div>
+        </DragDropContext>
+      </div>
     )
   }
 }
