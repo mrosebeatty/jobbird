@@ -22,7 +22,9 @@ class LeftNavBar extends Component {
             <ul className="sidenav list-group list-group-flush bg-light ">
               <li className="nav-item list-group-item bg-light ">
                 <nav>
-                  <img src="job-quest-logo.png" />
+                  <a href="/">
+                    <img src="job-quest-logo.png" />
+                  </a>
                 </nav>
                 <nav>
                   <Link className="text-dark" to="/jobboard">
@@ -35,9 +37,6 @@ class LeftNavBar extends Component {
                   <NavLink className="text-dark" to="/search">
                     Search
                   </NavLink>
-                  <a href="#" onClick={handleClick}>
-                    Log out
-                  </a>
                 </nav>
               </li>
             </ul>
@@ -50,12 +49,7 @@ class LeftNavBar extends Component {
           </div>
         ) : (
           <div>
-            <img src="job-quest-logo.png" />
             <Home />
-            {/* <Route exact path="/home" component={Home} />
-            <Route exact path="/jobboard" component={TrelloJobBoard} />
-            <Route exact path="/search" component={Search} />
-            <Route path="/jobs/:jobId" component={SingleJob} /> */}
           </div>
         )}
       </div>
