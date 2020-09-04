@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import OAuthLoginForm from './oauth-login-form.'
 
@@ -47,11 +46,3 @@ const mapDispatch = dispatch => {
 }
 
 export default connect(mapState, mapDispatch)(GoogleOauthNavBar)
-
-/**
- * PROP TYPES
- */
-GoogleOauthNavBar.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
-}
