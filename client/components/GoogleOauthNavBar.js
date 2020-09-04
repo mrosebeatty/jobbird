@@ -6,23 +6,25 @@ import {logout} from '../store'
 import OAuthLoginForm from './oauth-login-form.'
 
 const GoogleOauthNavBar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <ul className="nav">
-      {isLoggedIn ? (
-        <div className="nav-item btn btn-dark">
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
+  <div className="topnav">
+    <a href="/" className="p-0" />
+    {isLoggedIn ? (
+      <ul className="nav justify-content-end">
+        {/*The navbar will show these links after you log in*/}
+        <li className="nav-item ">
           <a href="#" onClick={handleClick}>
-            Logout
+            Log out
           </a>
-        </div>
-      ) : (
-        <div>
+        </li>
+      </ul>
+    ) : (
+      <ul className="nav justify-content-end p-0 m-0">
+        <li className="nav-item p-0 m-0">
           {/* The navbar will show these links before you log in */}
           <OAuthLoginForm />
-        </div>
-      )}
-    </ul>
+        </li>
+      </ul>
+    )}
   </div>
 )
 
