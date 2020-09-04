@@ -3,11 +3,16 @@ import {connect} from 'react-redux'
 import TrelloColumn from './TrelloColumn'
 import TrelloAddBtn from './TrelloAddBtn'
 import {DragDropContext} from 'react-beautiful-dnd'
-
 import {sort} from '../store/actions'
-import axios from 'axios'
 
 class TrelloJobBoard extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      userjobs: {}
+    }
+  }
+
   onDragEnd = result => {
     const {destination, source, draggableId} = result
 
