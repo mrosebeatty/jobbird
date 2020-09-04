@@ -11,18 +11,28 @@ const GoogleOauthNavBar = ({handleClick, isLoggedIn}) => (
       <ul className="nav justify-content-end">
         {/*The navbar will show these links after you log in*/}
         <li className="nav-item ">
-          <a href="#" onClick={handleClick}>
+          <a
+            href="#"
+            onClick={handleClick}
+            className="btn btn-danger white p-0 m-0 rounded"
+          >
+            {' '}
             Log out
           </a>
         </li>
       </ul>
     ) : (
-      <ul className="nav justify-content-end p-0 m-0">
-        <li className="nav-item p-0 m-0">
-          {/* The navbar will show these links before you log in */}
-          <OAuthLoginForm />
-        </li>
-      </ul>
+      /*This will show these links of you are not logged in*/
+      <div>
+        <a href="/">
+          <img src="job-quest-logo.png" />
+        </a>
+        <ul className="nav justify-content-end p-0 m-0">
+          <li className="nav-item p-0 m-0">
+            <OAuthLoginForm />
+          </li>
+        </ul>
+      </div>
     )}
   </div>
 )
