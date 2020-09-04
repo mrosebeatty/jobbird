@@ -50,10 +50,12 @@ class LeftNavBar extends Component {
           </div>
         ) : (
           <div>
-            <Route exact path="/home" component={Home} />
+            <img src="job-quest-logo.png" />
+            <Home />
+            {/* <Route exact path="/home" component={Home} />
             <Route exact path="/jobboard" component={TrelloJobBoard} />
             <Route exact path="/search" component={Search} />
-            <Route path="/jobs/:jobId" component={SingleJob} />
+            <Route path="/jobs/:jobId" component={SingleJob} /> */}
           </div>
         )}
       </div>
