@@ -41,7 +41,7 @@ export class SingleJob extends React.Component {
     console.log(this.props)
     const job = this.state.job
     return (
-      <div>
+      <div className="main">
         <div>
           <p>Title: {job.title}</p>
           <button
