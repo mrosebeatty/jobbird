@@ -6,7 +6,7 @@ const WISHLIST = 0
 const APPLIED = 1
 const INTERVIEW = 2
 const OFFER = 3
-const REJECTED = 4
+// const REJECTED = 4
 
 const initialState = [
   {

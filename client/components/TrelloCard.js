@@ -10,7 +10,7 @@ const TrelloCard = ({text, title, id, index}) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <div className="card py-3 m-2 shadow p-2 mb-5 bg-white rounded">
+          <div className="card py-3 my-1 shadow p-2 mb-5 bg-white rounded">
             <p className="px-3">Company: {text}</p>
             <p className="small px-3">Job Title: {title}</p>
           </div>
