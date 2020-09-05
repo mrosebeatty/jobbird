@@ -10,7 +10,7 @@ const TrelloColumn = ({title, cards, listID}) => {
         <div
           {...provided.droppableProps}
           ref={provided.innerRef}
-          className="card col-3"
+          className="card col-sm-3 col-12"
         >
           <div className="text-dark row d-flex justify-content-around mt-5">
             <span>
