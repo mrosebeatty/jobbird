@@ -1,152 +1,77 @@
 import {CONSTANTS} from '../actions'
+import {loadJobs} from '../actions/cardsActions'
+import axios from 'axios'
 
 const WISHLIST = 0
 const APPLIED = 1
 const INTERVIEW = 2
 const OFFER = 3
-const REJECTED = 4
-
-// let listID = 4
-// let cardID = 8
+// const REJECTED = 4
 
 const initialState = [
   {
     id: WISHLIST,
     title: 'WISHLIST',
-    cards: [
-      {
-        id: `card-${0}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${1}`,
-        text: 'front-end developer'
-      }
-    ]
+    cards: []
   },
   {
     id: APPLIED,
     title: 'APPLIED',
-    cards: [
-      {
-        id: `card-${2}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${3}`,
-        text: 'front-end developer'
-      }
-    ]
+    cards: []
   },
   {
     id: INTERVIEW,
     title: 'INTERVIEW',
-    cards: [
-      {
-        id: `card-${4}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${5}`,
-        text: 'donuts'
-      }
-    ]
+    cards: []
   },
   {
     id: OFFER,
     title: 'OFFER',
-    cards: [
-      {
-        id: `card-${6}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${7}`,
-        text: 'donuts'
-      }
-    ]
-  },
-  {
-    id: REJECTED,
-    title: 'REJECTED',
-    cards: [
-      {
-        id: `card-${6}`,
-        text: 'software engineer'
-      },
-      {
-        id: `card-${7}`,
-        text: 'donuts'
-      }
-    ]
+    cards: []
   }
+  // {
+  //   id: REJECTED,
+  //   title: 'REJECTED',
+  //   cards: []
+  // }
 ]
+
+//thunk to get the jobs
+
+export const fetchJobs = () => {
+  return async function(dispatch) {
+    try {
+      const {data: {id: userId}} = await axios.get(`/api/auth/me`)
+      const {data} = await axios.get(`/api/userjobs/${userId}`)
+      console.log('this is data', data)
+
+      dispatch(loadJobs(data[0].jobs))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+//-------------------
 
 const listsReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case CONSTANTS.ADD_LIST:
-    //   const newList = {
-    //     title: action.payload,
-    //     cards: [],
-    //     id: `list-${listID}`,
-    //   }
-    //   listID += 1
-    //   return [...state, newList]
+    ///test jobs thunk, to get cards/jobs
 
-    case CONSTANTS.ADD_CARD: {
-      const newCard = {
-        text: action.payload.text,
-        id: `card-${cardID}`
-      }
-      cardID += 1
-
-      const newState = state.map(list => {
-        if (list.id === action.payload.listID) {
-          return {
-            ...list,
-            cards: [...list.cards, newCard]
+    case CONSTANTS.LOAD_CARD_JOBS: {
+      console.log(action.testJobs)
+      const newState = [...state].map(column => {
+        //  console.log(column)
+        action.testJobs.forEach(job => {
+          //console.log('job status', column.id, 'job id', job.status)
+          if (job.userjobs.status == column.id) {
+            column.cards.push(job)
           }
-        } else {
-          return list
-        }
+          // console.log(job, column)
+        })
+        return column
       })
-
       return newState
     }
-
-    case CONSTANTS.DRAG_HAPPENED:
-      const {
-        droppableIdStart,
-        droppableIdEnd,
-        droppableIndexStart,
-        droppableIndexEnd,
-        draggableId
-      } = action.payload
-
-      const newState = [...state]
-
-      //if the same list
-      if (droppableIdStart === droppableIdEnd) {
-        console.log('heeeeeeeelo')
-        const list = state.find(list => droppableIdStart === list.id)
-
-        const card = list.cards.splice(droppableIndexStart, 1)
-        list.cards.splice(droppableIndexEnd, 0, ...card)
-      }
-
-      //if the list is in different column
-
-      if (droppableIndexStart !== droppableIdEnd) {
-        const listStart = state.find(list => droppableIdStart === list.id)
-
-        const card = listStart.cards.splice(droppableIndexStart, 1)
-
-        const listEnd = state.find(list => droppableIdEnd === list.id)
-
-        listEnd.cards.splice(droppableIndexEnd, 0, ...card)
-      }
-
-      return newState
 
     default:
       return state

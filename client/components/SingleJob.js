@@ -14,7 +14,6 @@ export class SingleJob extends React.Component {
   async componentDidMount() {
     try {
       const jobId = this.props.match.params.jobId
-
       const res = await axios.get(`/api/jobs/${jobId}`)
       this.setState({job: res.data})
     } catch (error) {
@@ -25,6 +24,7 @@ export class SingleJob extends React.Component {
   }
 
   async saveJob(job) {
+    console.log('this is the state', this.state)
     try {
       const id = this.state.job.id
       const {data: {id: userId}} = await axios.get(`/api/auth/me`)
@@ -41,20 +41,31 @@ export class SingleJob extends React.Component {
     console.log(this.props)
     const job = this.state.job
     return (
-      <div>
-        <div>
-          <p>Title: {job.title}</p>
-          <button
-            type="button"
-            className="float-right"
-            onClick={() => this.saveJob(job)}
-          >
-            Save
-          </button>
+      <div className="container">
+        <div className="main  card border">
+          <div className="row">
+            <div className="col">Title: {job.title}</div>
+            <button
+              type="button"
+              className="btn btn-outline-dark flex-end rounded  p-0 m-1"
+              onClick={() => this.saveJob(job)}
+            >
+              Save
+            </button>
+          </div>
+
+          <div className="row">
+            <div className="col">Company: {job.company}</div>
+          </div>
+          <div className="row">
+            <div className="col">Type: {job.type}</div>
+          </div>
+          <div className="row">
+            <div className="col">Description: {job.description}</div>
+          </div>
         </div>
         <p>Company: {job.company}</p>
         <p>Type: {job.type}</p>
-        {/* <p>Description: {job.description}</p> */}
         <p dangerouslySetInnerHTML={{__html: job.description}} />
       </div>
     )

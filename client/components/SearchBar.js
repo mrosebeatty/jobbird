@@ -30,7 +30,7 @@ export class SearchBar extends Component {
     //console.log("THIS>PROPS>JOBS", this.props.jobs)
     return (
       <form onSubmit={this.handleSubmit}>
-        <div id="search-jobs" className="md-form mt-0">
+        <div id="search-jobs" className=" mt-0">
           <label htmlFor="name">Search for jobs</label>
           <input
             type="text"

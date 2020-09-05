@@ -5,8 +5,6 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        {/* <h1 className="display-3">Welcome to JOB QUEST DOT COM</h1> */}
-
         <div className="row align-items-center mt-5">
           <div className="col-4">
             <h1 className="display-4">Job Board</h1>
@@ -15,9 +13,6 @@ class Home extends React.Component {
               volutpat. Integer elit mi, congue id massa sit amet, molestie
               dignissim dui.
             </p>
-            <button type="button" className="btn btn-info">
-              Sign Up
-            </button>
           </div>
           <div className="col-8">
             <img

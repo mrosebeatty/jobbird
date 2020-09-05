@@ -1,29 +1,37 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import OAuthLoginForm from './oauth-login-form.'
 
 const GoogleOauthNavBar = ({handleClick, isLoggedIn}) => (
-  <div className="topnav">
-    <a href="/" className="p-0" />
+  <div className="d-flex topnav row">
+    <nav className="col">
+      <a href="/">
+        <img src="/job-quest-logo.png" />
+      </a>
+    </nav>
     {isLoggedIn ? (
-      <ul className="nav justify-content-end">
+      <ul className="nav ">
         {/*The navbar will show these links after you log in*/}
-        <li className="nav-item ">
-          <a href="#" onClick={handleClick}>
+        <li className="nav-item flex-end col">
+          <a
+            href="#"
+            onClick={handleClick}
+            className="btn btn-danger white p-1 m-1 rounded"
+          >
             Log out
           </a>
         </li>
       </ul>
     ) : (
-      <ul className="nav justify-content-end p-0 m-0">
-        <li className="nav-item p-0 m-0">
-          {/* The navbar will show these links before you log in */}
-          <OAuthLoginForm />
-        </li>
-      </ul>
+      /*The navbar will show these links if you are not logged in*/
+      <div>
+        <ul className="nav  ">
+          <li className="nav-item p-0 m-0 flex-end col">
+            <OAuthLoginForm />
+          </li>
+        </ul>
+      </div>
     )}
   </div>
 )
@@ -47,11 +55,3 @@ const mapDispatch = dispatch => {
 }
 
 export default connect(mapState, mapDispatch)(GoogleOauthNavBar)
-
-/**
- * PROP TYPES
- */
-GoogleOauthNavBar.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
-}

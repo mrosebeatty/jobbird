@@ -4,13 +4,18 @@ import TrelloColumn from './TrelloColumn'
 import TrelloAddBtn from './TrelloAddBtn'
 import {DragDropContext} from 'react-beautiful-dnd'
 import {sort} from '../store/actions'
+import {fetchJobs} from '../store/reducers/listsReducer'
 
 class TrelloJobBoard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      userjobs: {}
+      // userjobs: {},
     }
+  }
+
+  componentDidMount() {
+    this.props.fetchJobs()
   }
 
   onDragEnd = result => {
@@ -33,21 +38,23 @@ class TrelloJobBoard extends React.Component {
 
   render() {
     const {lists} = this.props
-    console.log(this.props)
+    console.log('this are props', this.props)
 
     return (
       <div className="main">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <div className="row">
-            {lists.map(list => (
-              <TrelloColumn
-                listID={list.id}
-                key={list.id}
-                title={list.title}
-                cards={list.cards}
-              />
-            ))}
-            <TrelloAddBtn list />
+            {lists.map(list => {
+              return (
+                <TrelloColumn
+                  listID={list.id}
+                  key={list.id}
+                  title={list.title}
+                  cards={list.cards}
+                />
+              )
+            })}
+            {/* <TrelloAddBtn list /> */}
           </div>
         </DragDropContext>
       </div>
@@ -59,4 +66,10 @@ const mapStateToProps = state => ({
   lists: state.lists
 })
 
-export default connect(mapStateToProps)(TrelloJobBoard)
+const mapDispatch = dispatch => {
+  return {
+    fetchJobs: () => dispatch(fetchJobs())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatch)(TrelloJobBoard)
