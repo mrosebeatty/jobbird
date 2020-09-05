@@ -28,12 +28,12 @@ const initialState = [
     id: OFFER,
     title: 'OFFER',
     cards: []
-  },
-  {
-    id: REJECTED,
-    title: 'REJECTED',
-    cards: []
   }
+  // {
+  //   id: REJECTED,
+  //   title: 'REJECTED',
+  //   cards: []
+  // }
 ]
 
 //thunk to get the jobs
