@@ -54,7 +54,8 @@ export class SingleJob extends React.Component {
         </div>
         <p>Company: {job.company}</p>
         <p>Type: {job.type}</p>
-        <p>Description: {job.description}</p>
+        {/* <p>Description: {job.description}</p> */}
+        <p dangerouslySetInnerHTML={{__html: job.description}} />
       </div>
     )
   }
@@ -67,3 +68,11 @@ const mapState = reduxState => {
 }
 
 export default connect(mapState)(SingleJob)
+
+/*
+ <p>Description: {job.description}</p>
+<p
+            className="Features"
+            dangerouslySetInnerHTML={{ __html: job.description }}
+          />
+*/

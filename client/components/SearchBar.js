@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import axios from 'axios'
 
 export class SearchBar extends Component {
   constructor(props) {
@@ -24,10 +23,10 @@ export class SearchBar extends Component {
     this.setState({
       filter: ''
     })
-    console.log(' THISSTATE FILTER SHLD BE EMPTY', this.state.filter)
   }
 
   render() {
+    console.log(' THISSTATE FILTER NOW', this.state.filter)
     //console.log("THIS>PROPS>JOBS", this.props.jobs)
     return (
       <form onSubmit={this.handleSubmit}>
@@ -37,7 +36,7 @@ export class SearchBar extends Component {
             type="text"
             className="form-control"
             name="filter"
-            value={this.state.filteredjobs}
+            value={this.state.filter}
             onChange={this.handleChange}
             placeholder="Search..."
             aria-label="Search"
