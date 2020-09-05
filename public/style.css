@@ -27,6 +27,14 @@ form div {
   display: inline-block;
 }
 
+.column-text {
+  color: #530a85;
+}
+
+.btn-shadow {
+  border: 1px solid #530a85;
+}
+
 .topnav {
   background-color: #fff;
   position: fixed;

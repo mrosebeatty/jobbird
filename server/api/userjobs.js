@@ -6,11 +6,20 @@ const {UserJob, Job, User} = require('../db/models')
 //Get all data from userjobs table associated with a userId  ROUTE /api/userjobs/userId
 router.get('/:userId', async (req, res, next) => {
   try {
-    const test1 = await UserJob.findAll({
+    const test1 = await User.findAll({
       where: {
-        userId: req.params.userId
-      }
+        id: req.params.userId
+      },
+      include: [
+        {
+          model: Job,
+          through: {
+            model: UserJob
+          }
+        }
+      ]
     })
+    console.log('this is test1', test1)
     res.json(test1)
   } catch (error) {
     next(error)
@@ -52,7 +61,22 @@ router.get('/:userId', async (req, res, next) => {
     const test1 = await UserJob.findAll({
       where: {
         userId: req.params.userId
-      }
+      },
+      include: [
+        {
+          model: Job,
+          where: {jobId: req.params.jobId},
+          required: false,
+          attributes: [
+            'jobId',
+            'company',
+            'url',
+            'location',
+            'title',
+            'description'
+          ]
+        }
+      ]
     })
     res.json(test1)
   } catch (error) {

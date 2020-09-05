@@ -35,7 +35,7 @@ class LeftNavBar extends Component {
                 </nav>
               </li>
             </ul>
-            <div>
+            <div className="col-12">
               <Route exact path="/home" component={Home} />
               <Route exact path="/jobboard" component={TrelloJobBoard} />
               <Route exact path="/search" component={Search} />
