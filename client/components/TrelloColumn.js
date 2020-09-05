@@ -10,7 +10,7 @@ const TrelloColumn = ({title, cards, listID, userjobs}) => {
         <div
           {...provided.droppableProps}
           ref={provided.innerRef}
-          className="card col-3"
+          className="card col-2"
         >
           <h4>{title}</h4>
           {cards.map((card, index) => {

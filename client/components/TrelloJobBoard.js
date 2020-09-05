@@ -54,7 +54,7 @@ class TrelloJobBoard extends React.Component {
                 />
               )
             })}
-            <TrelloAddBtn list />
+            {/* <TrelloAddBtn list /> */}
           </div>
         </DragDropContext>
       </div>
