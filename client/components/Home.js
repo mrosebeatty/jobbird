@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 class Home extends React.Component {
   render() {
+    console.log(this.state)
     return (
       <div>
         {/* <h1 className="display-3">Welcome to JOB QUEST DOT COM</h1> */}
