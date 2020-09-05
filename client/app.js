@@ -12,7 +12,7 @@ function App() {
     //also switch statement to go between job board and search page
     <React.Fragment>
       <GoogleOauthNavBar />
-      <div className="row m-3">
+      <div>
         <LeftNavBar />
       </div>
 
