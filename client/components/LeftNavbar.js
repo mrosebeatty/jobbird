@@ -22,11 +22,6 @@ class LeftNavBar extends Component {
             <ul className="sidenav list-group list-group-flush bg-light ">
               <li className="nav-item list-group-item bg-light ">
                 <nav>
-                  <a href="/">
-                    <img src="job-quest-logo.png" />
-                  </a>
-                </nav>
-                <nav>
                   <Link className="text-dark" to="/jobboard">
                     My Job Board
                   </Link>

@@ -41,20 +41,29 @@ export class SingleJob extends React.Component {
     console.log(this.props)
     const job = this.state.job
     return (
-      <div className="main">
-        <div>
-          <p>Title: {job.title}</p>
-          <button
-            type="button"
-            className="float-right"
-            onClick={() => this.saveJob(job)}
-          >
-            Save
-          </button>
+      <div className="container">
+        <div className="main  card border">
+          <div className="row">
+            <div className="col">Title: {job.title}</div>
+            <button
+              type="button"
+              className="btn btn-outline-dark flex-end rounded  p-0 m-1"
+              onClick={() => this.saveJob(job)}
+            >
+              Save
+            </button>
+          </div>
+
+          <div className="row">
+            <div className="col">Company: {job.company}</div>
+          </div>
+          <div className="row">
+            <div className="col">Type: {job.type}</div>
+          </div>
+          <div className="row">
+            <div className="col">Description: {job.description}</div>
+          </div>
         </div>
-        <p>Company: {job.company}</p>
-        <p>Type: {job.type}</p>
-        <p>Description: {job.description}</p>
       </div>
     )
   }

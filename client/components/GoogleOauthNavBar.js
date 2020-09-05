@@ -1,34 +1,33 @@
 import React from 'react'
 import {connect} from 'react-redux'
-// import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import OAuthLoginForm from './oauth-login-form.'
 
 const GoogleOauthNavBar = ({handleClick, isLoggedIn}) => (
-  <div className="topnav">
-    <a href="/" className="p-0" />
+  <div className="d-flex topnav row">
+    <nav className="col">
+      <a href="/">
+        <img src="/job-quest-logo.png" />
+      </a>
+    </nav>
     {isLoggedIn ? (
-      <ul className="nav justify-content-end">
+      <ul className="nav ">
         {/*The navbar will show these links after you log in*/}
-        <li className="nav-item ">
+        <li className="nav-item flex-end col">
           <a
             href="#"
             onClick={handleClick}
-            className="btn btn-danger white p-0 m-0 rounded"
+            className="btn btn-danger white p-1 m-1 rounded"
           >
-            {' '}
             Log out
           </a>
         </li>
       </ul>
     ) : (
-      /*This will show these links of you are not logged in*/
+      /*The navbar will show these links if you are not logged in*/
       <div>
-        <a href="/">
-          <img src="job-quest-logo.png" />
-        </a>
-        <ul className="nav justify-content-end p-0 m-0">
-          <li className="nav-item p-0 m-0">
+        <ul className="nav  ">
+          <li className="nav-item p-0 m-0 flex-end col">
             <OAuthLoginForm />
           </li>
         </ul>
