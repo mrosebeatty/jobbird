@@ -49,22 +49,20 @@ class Search extends React.Component {
     return (
       <div className="main">
         <SearchBar jobs={jobs} handleUpdate={this.handleUpdate} />
-        <div className="d-flex flex-wrap">
-          {/* need to make this a link to the job at job.id */}
+        <div className=" d-flex p-2 flex-wrap">
           {jobs.map(job => (
-            <Link to={`/jobs/${job.id}`} key={job.id}>
-              <div key={job.id} className="card border col-sm-6 ">
-                <br />
-                {/* <img
+            <div key={job.id} className="card border col-sm-6 ">
+              {/* <img
                 src={job.company_logo}
                 alt="company logo"
                 className="img-thumbnail"
               /> */}
-                <p className="card-title">{job.company}</p>
-                <br />
-                <p className="card-text">{job.title}</p>
-              </div>
-            </Link>
+              <a href={`/jobs/${job.id}`}>
+                <p className="card-title">{job.title}</p>
+                <p className="card-text">@ {job.company}</p>
+                <p className="card-text">in {job.location}</p>
+              </a>
+            </div>
           ))}
         </div>
       </div>

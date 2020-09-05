@@ -5,6 +5,12 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
 }
 
 label {
@@ -29,12 +35,21 @@ form div {
   border: 1px solid #530a85;
 }
 
+.topnav {
+  background-color: #fff;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 70px;
+}
+
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 180px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
-  top: 0px; /* Stay at the top */
+  top: 70px; /* Stay at the top */
   left: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
@@ -47,10 +62,15 @@ form div {
   padding: 50px 10px;
 }
 /* top right bottom left */
-.topnav {
-  background-color: #fff;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  width: 100% !important;
+
+.card {
+  width: 500px;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 14px;
 }
