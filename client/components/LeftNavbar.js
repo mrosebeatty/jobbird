@@ -36,16 +36,14 @@ class LeftNavBar extends Component {
               </li>
             </ul>
             <div className="col-12">
-              <Route exact path="/home" component={Home} />
               <Route exact path="/jobboard" component={TrelloJobBoard} />
               <Route exact path="/search" component={Search} />
               <Route path="/jobs/:jobId" component={SingleJob} />
+              {/* <Route exact path="/home" component={Home} /> */}
             </div>
           </div>
         ) : (
-          <div>
-            <Home />
-          </div>
+          <div>{/* <Home /> */}</div>
         )}
       </div>
     )

@@ -61,7 +61,10 @@ export class SingleJob extends React.Component {
             <div className="col">Type: {job.type}</div>
           </div>
           <div className="row">
-            <div className="col">Description: {job.description}</div>
+            <div className="col">
+              Description:{' '}
+              <div dangerouslySetInnerHTML={{__html: job.description}} />
+            </div>
           </div>
         </div>
       </div>

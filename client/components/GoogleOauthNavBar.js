@@ -7,7 +7,9 @@ const GoogleOauthNavBar = ({handleClick, isLoggedIn}) => (
   <div className="d-flex topnav row">
     <nav className="col">
       <a href="/">
-        <img src="/job-quest-logo.png" />
+        <div className="logo ml-3">
+          jobBird <i className="fab fa-earlybirds" />
+        </div>
       </a>
     </nav>
     {isLoggedIn ? (
