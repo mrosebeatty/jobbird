@@ -13,11 +13,6 @@ function App() {
         <GoogleOauthNavBar />
       </div>
 
-      {/* <div className="row m-3">
-        <div className="col">
-          <LeftNavBar />
-        </div>
-      </div> */}
       <Route
         path="/"
         render={props => props.location.pathname !== '/' && <LeftNavBar />}
