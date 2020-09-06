@@ -19,22 +19,22 @@ const Footer = ({isLoggedIn}) => (
             <div className="col-3">
               <ul className="list-unstyled mb-5">
                 <li className="lead">Company</li>
-                <li className="strong my-3">Privacy policy</li>
-                <li strong>Terms of service</li>
+                <li className="text-muted my-3">Privacy policy</li>
+                <li className="text-muted">Terms of service</li>
               </ul>
             </div>
             <div className="col-3">
               <ul className="list-unstyled">
                 <li className="lead">Product</li>
-                <li className="strong my-3">For job seekers</li>
-                <li>For advisors</li>
+                <li className="text-muted my-3">For job seekers</li>
+                <li className="text-muted">For advisors</li>
               </ul>
             </div>
             <div className="col-3">
               <ul className="list-unstyled">
                 <li className="lead">Links</li>
-                <li className="strong my-3">Log in</li>
-                <li>Sign up</li>
+                <li className="text-muted my-3">Log in</li>
+                <li className="text-muted">Sign up</li>
               </ul>
             </div>
             <div className="col-3">
