@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 class Home extends React.Component {
   render() {
     return (
-      <div>
+      <div className="homepage">
         <div className="row align-items-center mt-5">
           <div className="col-4">
             <h1 className="display-4">Job Board</h1>

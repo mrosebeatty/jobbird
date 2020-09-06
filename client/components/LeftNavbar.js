@@ -18,8 +18,8 @@ class LeftNavBar extends Component {
     return (
       <div>
         {isLoggedIn ? (
-          <div>
-            <ul className="sidenav list-group list-group-flush bg-light ">
+          <div className="row">
+            <ul className="col-2 list-group list-group-flush bg-light ">
               <li className="nav-item list-group-item bg-light ">
                 <nav>
                   <Link className="text-dark" to="/jobboard">
@@ -35,7 +35,7 @@ class LeftNavBar extends Component {
                 </nav>
               </li>
             </ul>
-            <div className="col-12">
+            <div className="col-10">
               <Route exact path="/home" component={Home} />
               <Route exact path="/jobboard" component={TrelloJobBoard} />
               <Route exact path="/search" component={Search} />

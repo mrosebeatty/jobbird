@@ -7,19 +7,19 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <React.Fragment>
+    <div className="container-fluid">
       <div className="row">
         <GoogleOauthNavBar />
       </div>
 
-      <div className="row m-3">
+      <div className="row mt-3">
         <div className="col">
           <LeftNavBar />
         </div>
       </div>
 
       <Footer />
-    </React.Fragment>
+    </div>
   )
 }
 

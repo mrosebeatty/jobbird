@@ -47,7 +47,7 @@ class Search extends React.Component {
   render() {
     const {jobs} = this.state
     return (
-      <div className="main">
+      <div className=" ">
         <SearchBar jobs={jobs} handleUpdate={this.handleUpdate} />
         <div className=" d-flex p-2 flex-wrap">
           {jobs.map(job => (
