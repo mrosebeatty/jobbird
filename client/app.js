@@ -20,9 +20,9 @@ function App() {
       </div> */}
       <Route
         path="/"
-        render={props => props.location.pathname !== '/home' && <LeftNavBar />}
+        render={props => props.location.pathname !== '/' && <LeftNavBar />}
       />
-      <Route exact path="/home" component={Home} />
+      <Route exact path="/" component={Home} />
       <Footer />
     </React.Fragment>
   )

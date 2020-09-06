@@ -39,7 +39,6 @@ class LeftNavBar extends Component {
               <Route exact path="/jobboard" component={TrelloJobBoard} />
               <Route exact path="/search" component={Search} />
               <Route path="/jobs/:jobId" component={SingleJob} />
-              {/* <Route exact path="/home" component={Home} /> */}
             </div>
           </div>
         ) : (
