@@ -8,7 +8,7 @@ export class SingleJob extends React.Component {
   constructor() {
     super()
     this.state = {
-      job: {}
+      job: {},
     }
   }
 
@@ -28,7 +28,9 @@ export class SingleJob extends React.Component {
     console.log('this is the state', this.state)
     try {
       const id = this.state.job.id
-      const {data: {id: userId}} = await axios.get(`/api/auth/me`)
+      const {
+        data: {id: userId},
+      } = await axios.get(`/api/auth/me`)
       const res = await axios.post(`/api/userjobs/${userId}/${id}/add`, job)
       this.setState({job: res.data})
       history.push('/jobboard')
@@ -74,9 +76,9 @@ export class SingleJob extends React.Component {
   }
 }
 
-const mapState = reduxState => {
+const mapState = (reduxState) => {
   return {
-    user: reduxState.user
+    user: reduxState.user,
   }
 }
 
