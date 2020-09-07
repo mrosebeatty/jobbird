@@ -79,3 +79,7 @@ form div {
 .card-text {
   font-size: 14px;
 }
+
+.active-tab {
+  background-color: #f2f3f4;
+}

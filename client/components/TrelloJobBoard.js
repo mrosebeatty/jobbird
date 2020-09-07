@@ -42,6 +42,19 @@ class TrelloJobBoard extends React.Component {
 
     return (
       <div className="main">
+        <ul className="nav nav-tabs">
+          <li className="nav-item">
+            <a className="active-tab nav-link text-dark font-weight-bold border-secondary">
+              Job Board
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link text-secondary">Contacts</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link text-secondary">Notes</a>
+          </li>
+        </ul>
         <DragDropContext onDragEnd={this.onDragEnd}>
           <div className="row">
             {lists.map(list => {
