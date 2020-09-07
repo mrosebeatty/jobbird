@@ -1,25 +1,27 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {logout} from './store'
+import {Route} from 'react-router-dom'
+
 import GoogleOauthNavBar from './components/GoogleOauthNavBar'
 import LeftNavBar from './components/LeftNavBar'
 import Footer from './components/Footer'
+import Home from './components/Home'
 
 function App() {
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <GoogleOauthNavBar />
-      </div>
-
-      <div className="row mt-3">
-        <div className="col">
-          <LeftNavBar />
+    <React.Fragment>
+      <div className="row justify-content-between py-1">
+        <div className="container-fluid">
+          <GoogleOauthNavBar />
         </div>
       </div>
 
+      <Route
+        path="/"
+        render={props => props.location.pathname !== '/' && <LeftNavBar />}
+      />
+      <Route exact path="/" component={Home} />
       <Footer />
-    </div>
+    </React.Fragment>
   )
 }
 

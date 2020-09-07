@@ -18,34 +18,42 @@ class LeftNavBar extends Component {
     return (
       <div>
         {isLoggedIn ? (
-          <div className="row">
-            <ul className="col-2 list-group list-group-flush bg-light ">
+          <div className="row justify-content-center">
+            <div className="col-2">
+              <Link className="btn link text-dark" to="/jobboard">
+                My Job Board
+              </Link>
+              <div>
+                <NavLink className="btn link text-dark" to="/search">
+                  Search
+                </NavLink>
+              </div>
+            </div>
+
+            {/* <ul className="col-2 ">
               <li className="nav-item list-group-item bg-light ">
-                <nav>
-                  <Link className="text-dark" to="/jobboard">
+                <button className="btn bg-dark" type="button">
+                  <Link className="link text-dark" to="/jobboard">
                     My Job Board
                   </Link>
-                </nav>
+                </button>
               </li>
-              <li className="nav-item list-group-item bg-light">
+              <li className="nav-item list-group-item">
                 <nav>
-                  <NavLink className="text-dark" to="/search">
+                  <NavLink className="link text-dark" to="/search">
                     Search
                   </NavLink>
                 </nav>
               </li>
-            </ul>
+            </ul> */}
             <div className="col-10">
-              <Route exact path="/home" component={Home} />
               <Route exact path="/jobboard" component={TrelloJobBoard} />
               <Route exact path="/search" component={Search} />
               <Route path="/jobs/:jobId" component={SingleJob} />
             </div>
           </div>
         ) : (
-          <div>
-            <Home />
-          </div>
+          <div>{/* <Home /> */}</div>
         )}
       </div>
     )
