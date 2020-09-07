@@ -48,8 +48,21 @@ export class SingleJob extends React.Component {
           <div className="row justify-content-between">
             <div className="col-6">
               <strong>Title:</strong> {job.title}
+              <div>
+                <div>
+                  <strong>Company:</strong> {job.company}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <strong>Type:</strong> {job.type}
+                </div>
+                <div>
+                  <strong>Job Posted:</strong>
+                  {job.created_at}
+                </div>
+              </div>
             </div>
-
             <div className="col-2">
               <button
                 type="button"
@@ -59,8 +72,13 @@ export class SingleJob extends React.Component {
                 Save
               </button>
             </div>
+
+            <div className="mt-3">
+              <strong>Description:</strong>
+              <p dangerouslySetInnerHTML={{__html: job.description}} />
+            </div>
           </div>
-          <div className="row mt-5">
+          {/* <div className="row mt-5">
             <div className="col">
               <div>
                 <div>
@@ -71,12 +89,19 @@ export class SingleJob extends React.Component {
                 <div>
                   <strong>Type:</strong> {job.type}
                 </div>
+                <div>
+                  <strong>Job Posted:</strong>
+                  {job.created_at}
+                </div>
               </div>
               <div>
-                <div className="mt-3">Description: {job.description}</div>
+                <div className="mt-3">
+                  <strong>Description:</strong>
+                  <p dangerouslySetInnerHTML={{__html: job.description}} />
+                </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* <div>
             <div>Company: {job.company}</div>
