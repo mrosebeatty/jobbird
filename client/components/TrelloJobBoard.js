@@ -43,7 +43,7 @@ class TrelloJobBoard extends React.Component {
     return (
       <div className="main">
         <DragDropContext onDragEnd={this.onDragEnd}>
-          <div className="row">
+          <div className="row mr-2">
             {lists.map(list => {
               return (
                 <TrelloColumn
