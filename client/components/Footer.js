@@ -8,11 +8,11 @@ const Footer = ({isLoggedIn}) => (
       <footer className="row footer bg-dark text-light mt-1 sticky-bottom">
         <div className="container my-3">
           <div className="mb-3">
-            <p className="h1 text-info">
+            <p className="h1 text-info text-lobster">
               <span>
                 <i className="fab fa-earlybirds fa-sm pr-2 mt-5" />
               </span>
-              job bird.
+              jobBird
             </p>
             <blockquote className="blockquote">
               <p className="mb-0 small text-muted">

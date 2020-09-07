@@ -58,7 +58,7 @@ export class SingleJob extends React.Component {
                   <strong>Type:</strong> {job.type}
                 </div>
                 <div>
-                  <strong>Job Posted:</strong>
+                  <strong>Job Posted: </strong>
                   {job.created_at}
                 </div>
               </div>
