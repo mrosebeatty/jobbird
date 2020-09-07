@@ -1,7 +1,7 @@
 import React from 'react'
 import {Draggable} from 'react-beautiful-dnd'
 
-const TrelloCard = ({text, title, id, index}) => {
+const FakeTrelloCard = ({text, company, id, index}) => {
   return (
     <Draggable draggableId={String(id)} index={index}>
       {provided => (
@@ -10,13 +10,9 @@ const TrelloCard = ({text, title, id, index}) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <div className="card py-3 my-1 shadow p-2 mb-5 bg-white rounded">
-            <p className="px-3">
-              <strong>Company:</strong> {text}
-            </p>
-            <p className="small px-3">
-              <strong>Job Title:</strong> {title}
-            </p>
+          <div className="card my-1">
+            <p>{text}</p>
+            <p>{company}</p>
           </div>
         </div>
       )}
@@ -24,4 +20,4 @@ const TrelloCard = ({text, title, id, index}) => {
   )
 }
 
-export default TrelloCard
+export default FakeTrelloCard

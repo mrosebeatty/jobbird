@@ -43,31 +43,80 @@ export class SingleJob extends React.Component {
     console.log(this.props)
     const job = this.state.job
     return (
-      <div className="container">
-        <div className="main  card border">
-          <div className="row">
-            <div className="col">Title: {job.title}</div>
-            <button
-              type="button"
-              className="btn btn-outline-dark flex-end rounded  p-0 m-1"
-              onClick={() => this.saveJob(job)}
-            >
-              Save
-            </button>
-          </div>
+      <div className="row justify-content-center">
+        <div className="col-10 border border-info rounded p-5">
+          <div className="row justify-content-between">
+            <div className="col-6">
+              <strong>Title:</strong> {job.title}
+              <div>
+                <div>
+                  <strong>Company:</strong> {job.company}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <strong>Type:</strong> {job.type}
+                </div>
+                <div>
+                  <strong>Job Posted: </strong>
+                  {job.created_at}
+                </div>
+              </div>
+            </div>
+            <div className="col-2">
+              <button
+                type="button"
+                className="btn btn-success"
+                onClick={() => this.saveJob(job)}
+              >
+                Save
+              </button>
+            </div>
 
-          <div className="row">
-            <div className="col">Company: {job.company}</div>
+            <div className="mt-3">
+              <strong>Description:</strong>
+              <p dangerouslySetInnerHTML={{__html: job.description}} />
+            </div>
           </div>
-          <div className="row">
-            <div className="col">Type: {job.type}</div>
+          {/* <div className="row mt-5">
+            <div className="col">
+              <div>
+                <div>
+                  <strong>Company:</strong> {job.company}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <strong>Type:</strong> {job.type}
+                </div>
+                <div>
+                  <strong>Job Posted:</strong>
+                  {job.created_at}
+                </div>
+              </div>
+              <div>
+                <div className="mt-3">
+                  <strong>Description:</strong>
+                  <p dangerouslySetInnerHTML={{__html: job.description}} />
+                </div>
+              </div>
+            </div>
+          </div> */}
+
+          {/* <div>
+            <div>Company: {job.company}</div>
           </div>
+          <div>
+            <div>Type: {job.type}</div>
           <div className="row">
             <div className="col">
               Description:
               <p dangerouslySetInnerHTML={{__html: job.description}} />
             </div>
           </div>
+          <div>
+            <div>Description: {job.description}</div>
+          </div> */}
         </div>
       </div>
     )
