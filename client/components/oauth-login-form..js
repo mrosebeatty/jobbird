@@ -2,9 +2,11 @@ import React from 'react'
 
 const OAuthLoginForm = () => (
   <form method="get" action="/auth/google">
-    <button type="submit" className="btn btn-danger white p-0 m-0 rounded">
-      Log in with Google
-    </button>
+    <div>
+      <button type="submit" className="btn btn-info mr-3">
+        Log in with Google
+      </button>
+    </div>
   </form>
 )
 

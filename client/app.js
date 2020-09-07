@@ -9,8 +9,10 @@ import Home from './components/Home'
 function App() {
   return (
     <React.Fragment>
-      <div className="row">
-        <GoogleOauthNavBar />
+      <div className="row justify-content-between py-1">
+        <div className="container-fluid">
+          <GoogleOauthNavBar />
+        </div>
       </div>
 
       <Route
