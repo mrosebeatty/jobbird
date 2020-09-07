@@ -6,6 +6,7 @@ import {logout, me} from '../store'
 import Search from './Search'
 import Home from './Home'
 import SingleJob from './SingleJob'
+import FakeBoard from './FakeBoard'
 
 class LeftNavBar extends Component {
   componentDidMount() {

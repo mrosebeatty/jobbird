@@ -45,6 +45,11 @@ form div {
   /* font-size: 40px; */
 }
 
+.text-lobster {
+  letter-spacing: 2px;
+  font-family: 'Lobster', cursive;
+}
+
 .btn-shadow {
   border: 1px solid #530a85;
 }

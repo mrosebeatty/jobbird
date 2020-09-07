@@ -4,10 +4,12 @@ import {Link} from 'react-router-dom'
 class Home extends React.Component {
   render() {
     return (
-      <div className="homepage">
+      <div className="homepage container">
         <div className="row align-items-center mt-5">
           <div className="col-4">
-            <h1 className="display-6">It's your career. Don't wing it.</h1>
+            <h1 className="display-6 text-lobster">
+              It's your career. Don't wing it.
+            </h1>
             <p className="lead">
               Leave spreadsheets and Notes apps in the dust and fly to your next
               role with jobBird.
@@ -30,7 +32,7 @@ class Home extends React.Component {
             />
           </div>
           <div className="col-4">
-            <div className="font-weight-bold">Step 1. Search</div>
+            <div className="font-weight-bold logo">Step 1. Search</div>
             <p>
               Explore tech opportunities from all over the world, sourced from
               GitHub's own job board.
@@ -39,7 +41,7 @@ class Home extends React.Component {
         </div>
         <div className="row align-items-center mt-5">
           <div className="col-4">
-            <div className="font-weight-bold">Step 2. Save</div>
+            <div className="font-weight-bold logo">Step 2. Save</div>
             <p>
               See a role you like? Just click save to add it to your jobBird job
               board!
@@ -62,7 +64,7 @@ class Home extends React.Component {
             />
           </div>
           <div className="col-4">
-            <div className="font-weight-bold">Step 3. Prep & apply</div>
+            <div className="font-weight-bold logo">Step 3. Prep & apply</div>
             <p>
               With jobBird's convenient drag-and-drop organization
               functionality, you'll never lose track of where you are in the
@@ -72,7 +74,7 @@ class Home extends React.Component {
         </div>
         <div className="row align-items-center mt-5">
           <div className="col-4">
-            <div className="font-weight-bold">Step 4. Organize</div>
+            <div className="font-weight-bold logo">Step 4. Organize</div>
 
             <p>
               Need an easy-to-find spot for the email addresses and phone
@@ -89,9 +91,9 @@ class Home extends React.Component {
             />
           </div>
         </div>
-        <div className=" text-center">
+        {/* <div className=" text-center">
           jobBird. Because it's more than just a job. It's your flocking career.
-        </div>
+        </div> */}
       </div>
     )
   }

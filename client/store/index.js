@@ -6,9 +6,12 @@ import user from './user'
 
 import listsReducer from './reducers/listsReducer'
 
+import fakeBoardReducer from './reducers/fakeBoardReducer'
+
 const reducer = combineReducers({
   user,
-  lists: listsReducer
+  lists: listsReducer,
+  lists1: fakeBoardReducer
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))

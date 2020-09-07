@@ -7,15 +7,23 @@ const Footer = ({isLoggedIn}) => (
     {!isLoggedIn ? (
       <footer className="row footer bg-dark text-light mt-1 sticky-bottom">
         <div className="container my-3">
-          <div>
+          <div className="mb-3">
             <p className="h1 text-info">
               <span>
                 <i className="fab fa-earlybirds fa-sm pr-2 mt-5" />
               </span>
               job bird.
             </p>
+            <blockquote className="blockquote">
+              <p className="mb-0 small text-muted">
+                Because it's more than just a job. It's your flocking career.
+              </p>
+              {/* <footer className="blockquote-footer">
+                <cite title="Source Title">jobBird</cite>
+              </footer> */}
+            </blockquote>
           </div>
-          <div className="row justify-content-between my-3">
+          <div className="row justify-content-between my-5">
             <div className="col-3">
               <ul className="list-unstyled mb-5">
                 <li className="lead">Company</li>
