@@ -47,8 +47,15 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+// Makes the call to the GITHUB JOBS API
+const getApiData = async () => {
+  const res = await axios.get('https://jobs.github.com/positions.json')
+  return res
+}
+
 //POST route to add all new jobs to the db     ROUTE /api/jobs
 //make a call to the api ONCE A DAY ? & save NEW jobs into the database
+
 router.post('/', async (req, res, next) => {
   try {
     const jobsFromApi = await getApiData()
@@ -67,28 +74,3 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
-
-//Utils
-
-// this function makes the call to the GITHUB JOBS API
-const getApiData = async () => {
-  const res = await axios.get('https://jobs.github.com/positions.json')
-  return res
-}
-
-//write a function that converts html description into string??
-
-/*
- *for the search bar
-  <form action="/request/search" method="GET">
-            <input
-              type="text"
-              name="search"
-              id="search"
-              placeholder="Search for positions"
-              class="search"
-            />
-            <button class="search-btn" type="submit">Submit</button>
-        <div class="imae"></div>
-      </form>
-      */
