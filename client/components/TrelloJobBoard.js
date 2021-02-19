@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import TrelloColumn from './TrelloColumn'
-import TrelloAddBtn from './TrelloAddBtn'
+//import TrelloAddBtn from './TrelloAddBtn'
 import {DragDropContext} from 'react-beautiful-dnd'
 import {sort} from '../store/actions'
 import {fetchJobs} from '../store/reducers/listsReducer'
@@ -25,7 +25,7 @@ class TrelloJobBoard extends React.Component {
       return
     }
 
-    this.props.dispatch(
+    this.props.fetchJobs(
       sort(
         source.droppableId,
         destination.droppableId,
