@@ -2,8 +2,8 @@ const router = require('express').Router()
 module.exports = router
 const {UserJob, Job, User} = require('../db/models')
 
-//**MADISON WORKS */
-//Get all data from userjobs table associated with a userId  ROUTE /api/userjobs/userId
+//Get all data from userjobs table associated with a userId
+//ROUTE /api/userjobs/userId
 router.get('/:userId', async (req, res, next) => {
   try {
     const test1 = await User.findAll({
@@ -26,24 +26,6 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
-//DELETE LATER??? USELESS
-//show all columns associated with a userId
-//api/userjobs/userId/columns
-router.get('/:id/columns', async (req, res, next) => {
-  try {
-    const user = await User.findByPk(req.params.id)
-    const userColumns = await UserJob.findOne({
-      where: {
-        id: user.columnId
-      }
-    })
-    res.json(userColumns)
-  } catch (error) {
-    next(error)
-  }
-})
-//_________________________________
-
 //Get all job items from a user  ROUTE /api/userjobs/userId
 router.get('/', async (req, res, next) => {
   try {
@@ -53,7 +35,7 @@ router.get('/', async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-}) //api/user/userjobs
+})
 
 //api/userjobs/userId
 router.get('/:userId', async (req, res, next) => {
